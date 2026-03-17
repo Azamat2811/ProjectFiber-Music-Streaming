@@ -1,0 +1,26 @@
+package db
+
+import (
+	"database/sql"
+	"log"
+
+	_ "github.com/lib/pq"
+)
+
+var DB *sql.DB
+
+func Connect() {
+	dsn := "host=localhost port=5435 user=postgres password=12345 dbname=music_striming sslmode=disable"
+
+	var err error
+	DB, err = sql.Open("postgres", dsn)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if err = DB.Ping(); err != nil {
+		log.Fatal("DB is not connected:", err)
+	}
+
+	log.Println("DB connected successfully")
+}
