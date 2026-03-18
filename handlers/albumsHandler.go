@@ -100,14 +100,3 @@ func DeleteAlbum(c *fiber.Ctx) error {
 	return responses.Success(c, "album deleted successfully")
 }
 
-// func GetAlbumsByArtist(c *fiber.Ctx) error {
-// 	id, err := strconv.Atoi(c.Params("id"))
-// 	if err != nil {
-// 		return responses.Error(c, 400, "invalid id")
-// 	}
-// 	albums, err := services.GetAlbumsByArtist(id)
-// 	if err != nil {
-// 		return responses.Error(c, 404, err.Error())
-// 	}
-// 	return c.JSON(albums)
-// }
